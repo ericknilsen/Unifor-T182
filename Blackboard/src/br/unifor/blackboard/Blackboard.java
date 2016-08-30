@@ -1,6 +1,8 @@
 package br.unifor.blackboard;
-import java.util.Map;
+
 import br.unifor.contributor.Contributor;
+import br.unifor.contributor.GeradorFrases;
+import br.unifor.contributor.GeradorPalavras;
 
 public class Blackboard {
 
@@ -8,28 +10,35 @@ public class Blackboard {
 	
 	private Solucao solucao;	
 
-	public Blackboard() {
+	private Blackboard() {
 		this.solucao = new Solucao();
-	}	
+	}
 
-	public Map<Contributor, Double> inspect(Solucao solucao) {
+	public static synchronized Blackboard getInstance() {
 		
-		return null;
-	}
-	
-	public Double inspect(Solucao solucao, Contributor contributor) {		
-
-		return null;
-	}
-	
-	private Double calculaProporcao() {
-					
-		return null;
-	}
-	
-	public Boolean solucaoSatisfatoria() {		
+		if (instancia == null)
+			instancia = new Blackboard();
 		
-		return null;
+		return instancia;
+	}
+	
+	public Integer inspect(Contributor contributor) {
+		
+		Integer fatorContribuicao = 0;
+		if (contributor instanceof GeradorPalavras) {			
+			fatorContribuicao = solucao.getSilabas().size() - solucao.getPalavras().size();
+		} else if (contributor instanceof GeradorFrases) {
+			fatorContribuicao = solucao.getPalavras().size() - solucao.getSilabas().size();
+		}
+			
+		return fatorContribuicao;
+	}
+		
+	
+	public Boolean solucaoSatisfatoria() {
+		
+		return this.solucao.getSilabas().size() == 0 && this.solucao.getPalavras().size() == 0;
+		
 	}
 
 	public Solucao getSolucao() {
@@ -37,7 +46,8 @@ public class Blackboard {
 	}
 
 	public void update(Solucao solucao) {
-		
+		this.solucao = solucao;	
+		this.mostrarSolucao();
 	}
 	
 	private void mostrarSolucao() {

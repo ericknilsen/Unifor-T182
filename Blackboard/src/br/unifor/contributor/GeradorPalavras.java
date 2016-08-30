@@ -11,9 +11,9 @@ import br.unifor.blackboard.Solucao;
 public class GeradorPalavras implements Contributor {
 	
 	private List<String> dicionario = new ArrayList<String>(Arrays.asList("a", "e", "i", "o", "u", "casa", "cachorro", "correu", "caiu"));
-	private Solucao novaSolucao;
 	
-	private void updateBlackboard() {		
+	private void updateBlackboard(Solucao novaSolucao) {	
+		Blackboard.getInstance().update(novaSolucao);
 	}
 	
 	private Solucao geraPalavra(Solucao solucao) {
@@ -47,15 +47,17 @@ public class GeradorPalavras implements Contributor {
 	}
 
 	@Override
-	public Double execCondition() {
+	public Integer execCondition() {				
 		
-		return null;
-		
+		return Blackboard.getInstance().inspect(this);
 	}
 
 	@Override
 	public void execAction() {
+		Solucao solucaoAtual = Blackboard.getInstance().getSolucao();		
+		Solucao novaSolucao = this.geraPalavra(solucaoAtual);		
 		
+		this.updateBlackboard(novaSolucao);		
 	}
 
 }

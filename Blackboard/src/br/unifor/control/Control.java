@@ -1,36 +1,41 @@
 package br.unifor.control;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import br.unifor.blackboard.Blackboard;
 import br.unifor.contributor.Contributor;
+import br.unifor.contributor.GeradorFrases;
+import br.unifor.contributor.GeradorPalavras;
 
 public class Control {
+	
+	private Contributor geradorPalavras;
+	private Contributor geradorFrases;
+
+	public Control() {
+		this.geradorPalavras = new GeradorPalavras();
+		this.geradorFrases = new GeradorFrases();
+	}
 
 	public void loop() {
 
-		while (true) {			
-								
+		while (!Blackboard.getInstance().solucaoSatisfatoria()) {			
+			Contributor contributor = this.nextSource();
+			System.out.println();
+			System.out.println("CONTRIBUTOR: "+contributor.getClass().getSimpleName());		
+						
+			contributor.execAction();						
 		}
 
 	}
 
-	private Contributor nextSource() {
+	private Contributor nextSource() {	
+		
+		Integer fatorContribuicaoGP = this.geradorPalavras.execCondition();		
+		Integer fatorContribuicaoGF = this.geradorFrases.execCondition();
+				
+		if (fatorContribuicaoGP > fatorContribuicaoGF) 
+			return this.geradorPalavras;
+		else
+			return this.geradorFrases;			
+	}
 
-		return null;		
-	}
-	
-	private List<Contributor> determinaContributorsCandidatos() {
-		
-		return null;		
-	}
-	
-	
-	private Contributor determinaMelhorContributor(List<Contributor> contributorsCandidatos) {
-		
-		return null;
-		
-	}
 
 }

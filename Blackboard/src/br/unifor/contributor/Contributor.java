@@ -2,8 +2,7 @@ package br.unifor.contributor;
 
 public interface Contributor {
 	
-	
-	public Double execCondition();
+	public Integer execCondition();
 	
 	public void execAction();
 
