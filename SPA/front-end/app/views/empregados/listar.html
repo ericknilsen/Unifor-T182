@@ -1,0 +1,33 @@
+<h3>Listagem de Empregados</h3>
+
+<div>
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th class="text-right">
+                <a class="btn btn-success" 
+                    [routerLink]="['/empregado-cadastrar']">
+                    Cadastrar
+                </a>
+            </th>
+        </tr>
+        <tr *ngFor="let empregado of empregados; #id=index">
+            <td>{{ empregado.nome }}</td>
+            <td>{{ empregado.email }}</td>
+            <td>
+				<a class="btn btn-warning" 
+                    [routerLink]="['/empregado-visualizar/'+id]">
+                    Visualizar
+                </a>
+				<a class="btn btn-info" 
+                    [routerLink]="['/empregado-editar/'+id]">
+                    Editar
+                </a>
+                <button class="btn btn-danger" (click)="excluir(id)">
+                    Excluir
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>

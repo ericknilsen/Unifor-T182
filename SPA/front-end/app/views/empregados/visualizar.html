@@ -1,0 +1,26 @@
+<h3>Visualizar Empregado</h3>
+
+<div>
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Nome</th>
+                <td>{{ empregado.nome }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ empregado.email }}</td>
+            </tr>
+            <tr>
+                <th>Projetos</th>
+                <td *ngFor="let projeto of empregado.projetos">{{ projeto.nome }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="text-center">
+        <a class="btn btn-default" [routerLink]="['/empregado-listar']">
+            Voltar
+        </a>
+    </div>
+</div>
