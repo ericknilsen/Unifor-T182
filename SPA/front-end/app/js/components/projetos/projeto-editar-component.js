@@ -24,7 +24,7 @@ let ProjetoEditarComponent = class ProjetoEditarComponent {
         this.buscar(id);
     }
     buscar(id) {
-        this.projetoService.buscarPorId(id).subscribe(data => this.projeto = data[0], error => this.error = "Erro ao buscar projeto");
+        this.projetoService.buscarPorId(id).subscribe(data => this.projeto = data, error => this.error = "Erro ao buscar projeto");
     }
     atualizar() {
         this.projetoService.atualizar(this.projeto).subscribe(data => this.mensagem = data, error => this.error = "Erro ao editar projeto", () => this.router.navigate(['/projeto-listar']));

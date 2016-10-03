@@ -1,6 +1,8 @@
 <h3>Listagem de Empregados</h3>
 
 <div>
+    <div [hidden]="error == null" class="alert alert-danger" >{{error}}</div>
+
     <table class="table table-striped">
         <tr>
             <th>Nome</th>
@@ -12,19 +14,19 @@
                 </a>
             </th>
         </tr>
-        <tr *ngFor="let empregado of empregados; #id=index">
+        <tr *ngFor="let empregado of empregados">
             <td>{{ empregado.nome }}</td>
             <td>{{ empregado.email }}</td>
             <td>
 				<a class="btn btn-warning" 
-                    [routerLink]="['/empregado-visualizar/'+id]">
+                    [routerLink]="['/empregado-visualizar/'+empregado.id]">
                     Visualizar
                 </a>
 				<a class="btn btn-info" 
-                    [routerLink]="['/empregado-editar/'+id]">
+                    [routerLink]="['/empregado-editar/'+empregado.id]">
                     Editar
                 </a>
-                <button class="btn btn-danger" (click)="excluir(id)">
+                <button class="btn btn-danger" (click)="excluir(empregado.id)">
                     Excluir
                 </button>
             </td>

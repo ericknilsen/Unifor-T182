@@ -9,6 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
+const empregado_1 = require('../.././models/empregado');
+const departamento_1 = require('../.././models/departamento');
+const estacionamento_1 = require('../.././models/estacionamento');
 const empregado_service_1 = require('../.././services/empregado-service');
 const router_1 = require('@angular/router');
 let EmpregadoVisualizarComponent = class EmpregadoVisualizarComponent {
@@ -16,9 +19,15 @@ let EmpregadoVisualizarComponent = class EmpregadoVisualizarComponent {
         this.route = route;
         this.empregadoService = empregadoService;
     }
+    buscar(id) {
+        this.empregadoService.buscarPorId(id).subscribe(data => this.empregado = data, error => this.error = "Erro ao buscar empregado");
+    }
     ngOnInit() {
-        this.id = +this.route.snapshot.params['id'];
-        this.empregado = this.empregadoService.buscarPorId(this.id);
+        this.empregado = new empregado_1.Empregado();
+        this.empregado.departamento = new departamento_1.Departamento();
+        this.empregado.estacionamento = new estacionamento_1.Estacionamento();
+        var id = +this.route.snapshot.params['id'];
+        this.buscar(id);
     }
 };
 EmpregadoVisualizarComponent = __decorate([

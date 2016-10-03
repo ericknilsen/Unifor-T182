@@ -1,35 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Empregado } from '../models/empregado';
+import {Http, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/Rx';
 
 @Injectable()
 export class EmpregadoService {
 
-	listarTodos() {
-		var empregados:string = sessionStorage['empregados'];
-		return empregados ? JSON.parse(empregados) : [];
-	}
+	urlServico: string = "";
+
+    constructor(private http: Http) {
+
+    }
+
+	listar() {
+        
+    }
 
 	cadastrar(empregado: Empregado) {
-		var empregados:Empregado[] = this.listarTodos();
-		empregados.push(empregado);
-		sessionStorage['empregados'] = JSON.stringify(empregados);
-	}
 
-	atualizar(id: number, empregado: Empregado) {
-		var empregados:Empregado[] = this.listarTodos();
-		empregados[id].nome = empregado.nome;
-		empregados[id].email = empregado.email;
-		sessionStorage['empregados'] = JSON.stringify(empregados);
-	}
+    }
+
+	atualizar(empregado: Empregado) {
+
+    }
 
 	excluir(id: number) {
-		var empregados:Empregado[] = this.listarTodos();
-		empregados.splice(id, 1);
-		sessionStorage['empregados'] = JSON.stringify(empregados);
+
 	}
 
 	buscarPorId(id: number) {
-		var empregados:Empregado[] = this.listarTodos();
-		return empregados[id];
+
 	}
 }

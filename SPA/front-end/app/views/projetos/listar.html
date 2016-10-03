@@ -1,6 +1,7 @@
 <h3>Listagem de Projetos</h3>
 
-<div>
+<div>    
+    <div [hidden]="error == null" class="alert alert-danger">{{error}}</div>
     <table class="table table-striped">
         <tr>
             <th>Nome</th>

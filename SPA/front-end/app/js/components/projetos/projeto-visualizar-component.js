@@ -18,7 +18,7 @@ let ProjetoVisualizarComponent = class ProjetoVisualizarComponent {
         this.projetoService = projetoService;
     }
     buscar(id) {
-        this.projetoService.buscarPorId(id).subscribe(data => this.projeto = data[0], error => this.error = "Erro ao buscar projeto");
+        this.projetoService.buscarPorId(id).subscribe(data => this.projeto = data, error => this.error = "Erro ao buscar projeto");
     }
     ngOnInit() {
         this.projeto = new projeto_1.Projeto();

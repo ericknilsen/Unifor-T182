@@ -9,35 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
+const http_1 = require('@angular/http');
+require('rxjs/Rx');
 let EmpregadoService = class EmpregadoService {
-    listarTodos() {
-        var empregados = sessionStorage['empregados'];
-        return empregados ? JSON.parse(empregados) : [];
+    constructor(http) {
+        this.http = http;
+        this.urlServico = "";
+    }
+    listar() {
     }
     cadastrar(empregado) {
-        var empregados = this.listarTodos();
-        empregados.push(empregado);
-        sessionStorage['empregados'] = JSON.stringify(empregados);
     }
-    atualizar(id, empregado) {
-        var empregados = this.listarTodos();
-        empregados[id].nome = empregado.nome;
-        empregados[id].email = empregado.email;
-        sessionStorage['empregados'] = JSON.stringify(empregados);
+    atualizar(empregado) {
     }
     excluir(id) {
-        var empregados = this.listarTodos();
-        empregados.splice(id, 1);
-        sessionStorage['empregados'] = JSON.stringify(empregados);
     }
     buscarPorId(id) {
-        var empregados = this.listarTodos();
-        return empregados[id];
     }
 };
 EmpregadoService = __decorate([
     core_1.Injectable(), 
-    __metadata('design:paramtypes', [])
+    __metadata('design:paramtypes', [http_1.Http])
 ], EmpregadoService);
 exports.EmpregadoService = EmpregadoService;
 //# sourceMappingURL=empregado-service.js.map

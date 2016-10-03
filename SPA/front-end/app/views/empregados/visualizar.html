@@ -1,6 +1,7 @@
 <h3>Visualizar Empregado</h3>
 
-<div>
+<div class="col-md-4">
+    <div [hidden]="error == null" class="alert alert-danger">{{error}}</div>
     <div>
         <table class="table table-striped">
             <tr>
@@ -12,11 +13,25 @@
                 <td>{{ empregado.email }}</td>
             </tr>
             <tr>
+                <th>Departamento</th>
+                <td>{{ empregado.departamento.nome }}</td>
+            </tr>
+            <tr>
+                <th>Estacionamento</th>
+                <td>{{ empregado.estacionamento.codigo }}</td>
+            </tr>          
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-striped">
+              <tr>
                 <th>Projetos</th>
                 <td *ngFor="let projeto of empregado.projetos">{{ projeto.nome }}</td>
             </tr>
         </table>
     </div>
+
 
     <div class="text-center">
         <a class="btn btn-default" [routerLink]="['/empregado-listar']">

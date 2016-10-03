@@ -1,6 +1,7 @@
 <h3>Cadastrar Projeto</h3>
 
-<div class="well">
+<div class="col-md-4">
+    <div [hidden]="error == null" class="alert alert-danger">{{error}}</div>
     <form role="form">
         <div class="form-group">
             <label class="control-label" for="nome">Nome</label>
@@ -8,7 +9,7 @@
         </div>
         <div class="form-group">
             <label class="control-label" for="descricao">Descrição</label>
-            <input type="descricao" class="form-control" name="descricao" id="descricao" [(ngModel)]="projeto.descricao">
+            <input type="text" class="form-control" name="descricao" id="descricao" [(ngModel)]="projeto.descricao">
         </div> 
 
         <div class="form-group text-center">

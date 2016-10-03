@@ -14,30 +14,17 @@ require('rxjs/Rx');
 let ProjetoService = class ProjetoService {
     constructor(http) {
         this.http = http;
-        this.urlServico = "http://localhost:8080/ExemploRest/rest/projetos";
+        this.urlServico = "";
     }
     listar() {
-        return this.http.get(this.urlServico).map(res => res.json());
     }
     cadastrar(projeto) {
-        let headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        let options = new http_1.RequestOptions({ headers: headers });
-        let body = JSON.stringify(projeto);
-        return this.http.post(this.urlServico, body, options).map(res => res.text());
     }
     atualizar(projeto) {
-        let headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        let options = new http_1.RequestOptions({ headers: headers });
-        let body = JSON.stringify(projeto);
-        return this.http.put(this.urlServico, body, options).map(res => res.text());
     }
     excluir(id) {
-        let url = this.urlServico + '/' + id;
-        return this.http.delete(url).map(res => res.text());
     }
     buscarPorId(id) {
-        return this.http.get(this.urlServico + '?id=' + id).map(res => res.json());
-        ;
     }
 };
 ProjetoService = __decorate([

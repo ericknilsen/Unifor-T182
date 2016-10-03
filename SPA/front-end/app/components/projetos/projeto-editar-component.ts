@@ -30,7 +30,7 @@ export class ProjetoEditarComponent implements OnInit {
 
     buscar(id: number) {
         this.projetoService.buscarPorId(id).subscribe(
-            data => this.projeto = data[0],
+            data => this.projeto = data,
             error => this.error = "Erro ao buscar projeto"
         );
     }

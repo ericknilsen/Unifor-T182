@@ -16,11 +16,13 @@ let EmpregadoListarComponent = class EmpregadoListarComponent {
         this.empregadoService = empregadoService;
     }
     ngOnInit() {
-        this.empregados = this.empregadoService.listarTodos();
+        this.listar();
+    }
+    listar() {
+        this.empregadoService.listar().subscribe(data => this.empregados = data, error => this.error = "Erro ao listar empregados");
     }
     excluir(id) {
-        this.empregadoService.excluir(id);
-        this.empregados = this.empregadoService.listarTodos();
+        this.empregadoService.excluir(id).subscribe(data => this.mensagem = data, error => this.error = "Erro ao excluir empregado", () => this.listar());
     }
 };
 EmpregadoListarComponent = __decorate([

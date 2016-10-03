@@ -7,7 +7,8 @@ public class ProjetoVO {
 
         private Long id;
         private String nome;       
-        private String descricao;        
+        private String descricao;
+        private Boolean selected;
         
 		public Long getId() {
 			return id;
@@ -26,6 +27,12 @@ public class ProjetoVO {
 		}
 		public void setDescricao(String descricao) {
 			this.descricao = descricao;
+		}
+		public Boolean getSelected() {
+			return selected;
+		}
+		public void setSelected(Boolean selected) {
+			this.selected = selected;
 		}
 	
     

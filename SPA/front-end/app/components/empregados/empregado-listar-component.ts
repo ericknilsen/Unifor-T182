@@ -7,22 +7,34 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 @Component({
 	selector: 'empregado-listar',
 	templateUrl: 'app/views/empregados/listar.html',
-	providers: [ EmpregadoService ],
-	directives: [ ROUTER_DIRECTIVES ]
+	providers: [EmpregadoService],
+	directives: [ROUTER_DIRECTIVES]
 })
 export class EmpregadoListarComponent implements OnInit {
 
 	private empregados: Empregado[];
+	private mensagem: string;
+	private error: string;
 
 	constructor(private empregadoService: EmpregadoService) {
 	}
 
 	ngOnInit() {
-		this.empregados = this.empregadoService.listarTodos();
+		this.listar();
 	}
 
+	listar() {
+        this.empregadoService.listar().subscribe(
+            data => this.empregados = data,
+            error => this.error = "Erro ao listar empregados"
+        );
+    }
+
 	excluir(id: number) {
-		this.empregadoService.excluir(id);
-		this.empregados = this.empregadoService.listarTodos();
+		this.empregadoService.excluir(id).subscribe(
+            data => this.mensagem = data,
+            error => this.error = "Erro ao excluir empregado",
+            () => this.listar()
+        );
 	}
 }

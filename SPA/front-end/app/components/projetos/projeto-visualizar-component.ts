@@ -20,16 +20,16 @@ export class ProjetoVisualizarComponent implements OnInit {
         private projetoService: ProjetoService) {
     }
 
-    buscar(id: number) {
+    buscar(id: number) {        
         this.projetoService.buscarPorId(id).subscribe(
-            data => this.projeto = data[0],
+            data => this.projeto = data,
             error => this.error = "Erro ao buscar projeto"            
         );
     }
 
     ngOnInit() {
         this.projeto = new Projeto();
-        var id = +this.route.snapshot.params['id'];
+        var id = +this.route.snapshot.params['id'];        
         this.buscar(id);       
     }
 
