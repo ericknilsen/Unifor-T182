@@ -1,0 +1,20 @@
+<h3>Visualizar Projeto</h3>
+
+<div class="col-md-4">
+    <div [hidden]="error == null" class="alert alert-danger">{{error}}</div>
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <td>{{ projeto.nome }}</td>
+        </tr>
+        <tr>
+            <th>Descrição</th>
+            <td>{{ projeto.descricao }}</td>
+        </tr>
+    </table>
+    <div class="text-center">
+        <a class="btn btn-default" [routerLink]="['/projeto-listar']">
+            Voltar
+        </a>
+    </div>
+</div>

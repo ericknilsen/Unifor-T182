@@ -1,0 +1,32 @@
+<h3>Listagem de Estacionamentos</h3>
+
+<div>    
+    <div [hidden]="error == null" class="alert alert-danger">{{error}}</div>
+    <table class="table table-striped">
+        <tr>
+            <th>Código</th>            
+            <th class="text-right">
+                <a class="btn btn-success" 
+                    [routerLink]="['/estacionamento-cadastrar']">
+                    Cadastrar
+                </a>
+            </th>
+        </tr>
+        <tr *ngFor="let estacionamento of estacionamentos">           
+            <td>{{ estacionamento.codigo }}</td>
+            <td>
+				<a class="btn btn-warning" 
+                    [routerLink]="['/estacionamento-visualizar/'+estacionamento.id]">
+                    Visualizar
+                </a>
+				<a class="btn btn-info" 
+                    [routerLink]="['/estacionamento-editar/'+estacionamento.id]">
+                    Editar
+                </a>
+                <button class="btn btn-danger" (click)="excluir(estacionamento.id)">
+                    Excluir
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>

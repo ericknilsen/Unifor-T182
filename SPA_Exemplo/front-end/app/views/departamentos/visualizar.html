@@ -1,0 +1,20 @@
+<h3>Visualizar Departamento</h3>
+
+<div class="col-md-4">
+    <div [hidden]="error == null" class="alert alert-danger">{{error}}</div>
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <td>{{ departamento.nome }}</td>
+        </tr>
+        <tr>
+            <th>Código</th>
+            <td>{{ departamento.codigo }}</td>
+        </tr>
+    </table>
+    <div class="text-center">
+        <a class="btn btn-default" [routerLink]="['/departamento-listar']">
+            Voltar
+        </a>
+    </div>
+</div>
