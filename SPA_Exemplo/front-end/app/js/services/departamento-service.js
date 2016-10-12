@@ -8,29 +8,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const http_1 = require('@angular/http');
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
 require('rxjs/Rx');
-let DepartamentoService = class DepartamentoService {
-    constructor(http) {
+var DepartamentoService = (function () {
+    function DepartamentoService(http) {
         this.http = http;
         this.urlServico = "";
     }
-    listar() {
-        return this.http.get(this.urlServico).map(res => res.json());
-    }
-    cadastrar(departamento) {
-    }
-    atualizar(departamento) {
-    }
-    excluir(id) {
-    }
-    buscarPorId(id) {
-    }
-};
-DepartamentoService = __decorate([
-    core_1.Injectable(), 
-    __metadata('design:paramtypes', [http_1.Http])
-], DepartamentoService);
+    DepartamentoService.prototype.listar = function () {
+        return this.http.get(this.urlServico).map(function (res) { return res.json(); });
+    };
+    DepartamentoService.prototype.cadastrar = function (departamento) {
+        return null;
+    };
+    DepartamentoService.prototype.atualizar = function (departamento) {
+        return null;
+    };
+    DepartamentoService.prototype.excluir = function (id) {
+        return null;
+    };
+    DepartamentoService.prototype.buscarPorId = function (id) {
+        return null;
+    };
+    DepartamentoService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], DepartamentoService);
+    return DepartamentoService;
+}());
 exports.DepartamentoService = DepartamentoService;
 //# sourceMappingURL=departamento-service.js.map

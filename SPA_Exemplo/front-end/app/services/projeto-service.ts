@@ -13,24 +13,24 @@ export class ProjetoService {
     }
 
 	listar() {
-       
+  		return null;     
     }
 
 	cadastrar(projeto: Projeto) {
-       
+  		return null;     
     }
 
 	atualizar(projeto: Projeto) {
-
+		return null;
     }
 
 
 	excluir(id: number) {
-
+		return null;
 	}
 
 
 	buscarPorId(id: number) {
-
+		return null;
 	}
 }

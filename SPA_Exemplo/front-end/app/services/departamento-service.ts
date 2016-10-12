@@ -17,18 +17,18 @@ export class DepartamentoService {
     }
 
 	cadastrar(departamento: Departamento) {
-   
+		return null;   
     }
 
 	atualizar(departamento: Departamento) {
-   
+		return null;   
     }
 
 	excluir(id: number) {
-	
+		return null;	
 	}
 
 	buscarPorId(id: number) {
-	
+		return null;	
 	}
 }

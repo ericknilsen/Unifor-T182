@@ -8,36 +8,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const estacionamento_1 = require('../.././models/estacionamento');
-const estacionamento_service_1 = require('../.././services/estacionamento-service');
-const router_1 = require('@angular/router');
-let EstacionamentoEditarComponent = class EstacionamentoEditarComponent {
-    constructor(route, router, departamentoService) {
+var core_1 = require('@angular/core');
+var estacionamento_1 = require('../.././models/estacionamento');
+var estacionamento_service_1 = require('../.././services/estacionamento-service');
+var router_1 = require('@angular/router');
+var EstacionamentoEditarComponent = (function () {
+    function EstacionamentoEditarComponent(route, router, departamentoService) {
         this.route = route;
         this.router = router;
         this.departamentoService = departamentoService;
     }
-    ngOnInit() {
+    EstacionamentoEditarComponent.prototype.ngOnInit = function () {
         this.estacionamento = new estacionamento_1.Estacionamento();
         var id = +this.route.snapshot.params['id'];
         this.buscar(id);
-    }
-    buscar(id) {
-        this.departamentoService.buscarPorId(id).subscribe(data => this.estacionamento = data, error => this.error = "Erro ao buscar estacionamento");
-    }
-    atualizar() {
-        this.departamentoService.atualizar(this.estacionamento).subscribe(data => this.mensagem = data, error => this.error = "Erro ao editar estacionamento", () => this.router.navigate(['/estacionamento-listar']));
-    }
-};
-EstacionamentoEditarComponent = __decorate([
-    core_1.Component({
-        selector: 'estacionamento-editar',
-        templateUrl: 'app/views/estacionamentos/editar.html',
-        providers: [estacionamento_service_1.EstacionamentoService],
-        directives: [router_1.ROUTER_DIRECTIVES]
-    }), 
-    __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, estacionamento_service_1.EstacionamentoService])
-], EstacionamentoEditarComponent);
+    };
+    EstacionamentoEditarComponent.prototype.buscar = function (id) {
+        var _this = this;
+        this.departamentoService.buscarPorId(id).subscribe(function (data) { return _this.estacionamento = data; }, function (error) { return _this.error = "Erro ao buscar estacionamento"; });
+    };
+    EstacionamentoEditarComponent.prototype.atualizar = function () {
+        var _this = this;
+        this.departamentoService.atualizar(this.estacionamento).subscribe(function (data) { return _this.mensagem = data; }, function (error) { return _this.error = "Erro ao editar estacionamento"; }, function () { return _this.router.navigate(['/estacionamento-listar']); });
+    };
+    EstacionamentoEditarComponent = __decorate([
+        core_1.Component({
+            selector: 'estacionamento-editar',
+            templateUrl: 'app/views/estacionamentos/editar.html',
+            providers: [estacionamento_service_1.EstacionamentoService],
+            directives: [router_1.ROUTER_DIRECTIVES]
+        }), 
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, estacionamento_service_1.EstacionamentoService])
+    ], EstacionamentoEditarComponent);
+    return EstacionamentoEditarComponent;
+}());
 exports.EstacionamentoEditarComponent = EstacionamentoEditarComponent;
 //# sourceMappingURL=estacionamento-editar-component.js.map

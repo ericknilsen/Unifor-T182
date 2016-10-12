@@ -13,24 +13,24 @@ export class EstacionamentoService {
     }
 
 	listar() {
-     
+		return null;     
     }
 
 	cadastrar(estacionamento: Estacionamento) {
-     
+ 		return null;    
     }
 
 	atualizar(estacionamento: Estacionamento) {
-     
+		return null;     
     }
 
 
 	excluir(id: number) {
-
+		return null;
 	}
 
 
 	buscarPorId(id: number) {
-
+		return null;
 	}
 }

@@ -8,15 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const empregado_1 = require('../.././models/empregado');
-const empregado_service_1 = require('../.././services/empregado-service');
-const projeto_service_1 = require('../.././services/projeto-service');
-const estacionamento_service_1 = require('../.././services/estacionamento-service');
-const departamento_service_1 = require('../.././services/departamento-service');
-const router_1 = require('@angular/router');
-let EmpregadoEditarComponent = class EmpregadoEditarComponent {
-    constructor(route, router, empregadoService, departamentoService, estacionamentoService, projetoService) {
+var core_1 = require('@angular/core');
+var empregado_1 = require('../.././models/empregado');
+var empregado_service_1 = require('../.././services/empregado-service');
+var projeto_service_1 = require('../.././services/projeto-service');
+var estacionamento_service_1 = require('../.././services/estacionamento-service');
+var departamento_service_1 = require('../.././services/departamento-service');
+var router_1 = require('@angular/router');
+var EmpregadoEditarComponent = (function () {
+    function EmpregadoEditarComponent(route, router, empregadoService, departamentoService, estacionamentoService, projetoService) {
         this.route = route;
         this.router = router;
         this.empregadoService = empregadoService;
@@ -24,7 +24,7 @@ let EmpregadoEditarComponent = class EmpregadoEditarComponent {
         this.estacionamentoService = estacionamentoService;
         this.projetoService = projetoService;
     }
-    ngOnInit() {
+    EmpregadoEditarComponent.prototype.ngOnInit = function () {
         this.empregado = new empregado_1.Empregado();
         this.empregado.projetos = new Array();
         this.projetos = new Array();
@@ -33,61 +33,70 @@ let EmpregadoEditarComponent = class EmpregadoEditarComponent {
         this.listarProjetos();
         var id = +this.route.snapshot.params['id'];
         this.buscar(id);
-    }
-    buscar(id) {
-        this.empregadoService.buscarPorId(id).subscribe(data => this.empregado = data, error => this.error = "Erro ao buscar empregado", () => this.carregaDados());
-    }
-    atualizar() {
-        let projetosSelecionados = this.projetos.filter((x) => x.selected);
+    };
+    EmpregadoEditarComponent.prototype.buscar = function (id) {
+        var _this = this;
+        this.empregadoService.buscarPorId(id).subscribe(function (data) { return _this.empregado = data; }, function (error) { return _this.error = "Erro ao buscar empregado"; }, function () { return _this.carregaDados(); });
+    };
+    EmpregadoEditarComponent.prototype.atualizar = function () {
+        var _this = this;
+        var projetosSelecionados = this.projetos.filter(function (x) { return x.selected; });
         this.empregado.projetos = projetosSelecionados;
-        this.empregadoService.atualizar(this.empregado).subscribe(data => this.mensagem = data, error => this.error = "Erro ao editar empregado", () => this.router.navigate(['/empregado-listar']));
-    }
-    listarDepartamentos() {
-        this.departamentoService.listar().subscribe(data => this.departamentos = data, error => this.error = "Erro ao listar departamento");
-    }
-    listarEstacionamentos() {
-        this.estacionamentoService.listar().subscribe(data => this.estacionamentos = data, error => this.error = "Erro ao listar estacionamentos");
-    }
-    listarProjetos() {
-        this.projetoService.listar().subscribe(data => this.projetos = data, error => this.error = "Erro ao listar projetos");
-    }
-    carregaDados() {
+        this.empregadoService.atualizar(this.empregado).subscribe(function (data) { return _this.mensagem = data; }, function (error) { return _this.error = "Erro ao editar empregado"; }, function () { return _this.router.navigate(['/empregado-listar']); });
+    };
+    EmpregadoEditarComponent.prototype.listarDepartamentos = function () {
+        var _this = this;
+        this.departamentoService.listar().subscribe(function (data) { return _this.departamentos = data; }, function (error) { return _this.error = "Erro ao listar departamento"; });
+    };
+    EmpregadoEditarComponent.prototype.listarEstacionamentos = function () {
+        var _this = this;
+        this.estacionamentoService.listar().subscribe(function (data) { return _this.estacionamentos = data; }, function (error) { return _this.error = "Erro ao listar estacionamentos"; });
+    };
+    EmpregadoEditarComponent.prototype.listarProjetos = function () {
+        var _this = this;
+        this.projetoService.listar().subscribe(function (data) { return _this.projetos = data; }, function (error) { return _this.error = "Erro ao listar projetos"; });
+    };
+    EmpregadoEditarComponent.prototype.carregaDados = function () {
         this.selecionaDepartamento();
         this.selecionaEstacionamento();
         this.marcaProjetos();
-    }
-    selecionaDepartamento() {
-        this.departamentos.forEach(departamento => {
-            if (this.empregado.departamento.id == departamento.id)
-                this.empregado.departamento = departamento;
+    };
+    EmpregadoEditarComponent.prototype.selecionaDepartamento = function () {
+        var _this = this;
+        this.departamentos.forEach(function (departamento) {
+            if (_this.empregado.departamento.id == departamento.id)
+                _this.empregado.departamento = departamento;
         });
-    }
-    selecionaEstacionamento() {
-        this.estacionamentos.forEach(estacionamento => {
-            if (this.empregado.estacionamento.id == estacionamento.id)
-                this.empregado.estacionamento = estacionamento;
+    };
+    EmpregadoEditarComponent.prototype.selecionaEstacionamento = function () {
+        var _this = this;
+        this.estacionamentos.forEach(function (estacionamento) {
+            if (_this.empregado.estacionamento.id == estacionamento.id)
+                _this.empregado.estacionamento = estacionamento;
         });
-    }
-    marcaProjetos() {
-        this.empregado.projetos.forEach(projetoEmp => {
-            this.projetos.forEach(projeto => {
+    };
+    EmpregadoEditarComponent.prototype.marcaProjetos = function () {
+        var _this = this;
+        this.empregado.projetos.forEach(function (projetoEmp) {
+            _this.projetos.forEach(function (projeto) {
                 if (projetoEmp.id == projeto.id)
                     projeto.selected = true;
             });
         });
-    }
-    checkbox(projeto) {
+    };
+    EmpregadoEditarComponent.prototype.checkbox = function (projeto) {
         projeto.selected = (projeto.selected) ? false : true;
-    }
-};
-EmpregadoEditarComponent = __decorate([
-    core_1.Component({
-        selector: 'empregado-editar',
-        templateUrl: 'app/views/empregados/editar.html',
-        providers: [empregado_service_1.EmpregadoService, projeto_service_1.ProjetoService, departamento_service_1.DepartamentoService, estacionamento_service_1.EstacionamentoService],
-        directives: [router_1.ROUTER_DIRECTIVES]
-    }), 
-    __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, empregado_service_1.EmpregadoService, departamento_service_1.DepartamentoService, estacionamento_service_1.EstacionamentoService, projeto_service_1.ProjetoService])
-], EmpregadoEditarComponent);
+    };
+    EmpregadoEditarComponent = __decorate([
+        core_1.Component({
+            selector: 'empregado-editar',
+            templateUrl: 'app/views/empregados/editar.html',
+            providers: [empregado_service_1.EmpregadoService, projeto_service_1.ProjetoService, departamento_service_1.DepartamentoService, estacionamento_service_1.EstacionamentoService],
+            directives: [router_1.ROUTER_DIRECTIVES]
+        }), 
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, empregado_service_1.EmpregadoService, departamento_service_1.DepartamentoService, estacionamento_service_1.EstacionamentoService, projeto_service_1.ProjetoService])
+    ], EmpregadoEditarComponent);
+    return EmpregadoEditarComponent;
+}());
 exports.EmpregadoEditarComponent = EmpregadoEditarComponent;
 //# sourceMappingURL=empregado-editar-component.js.map

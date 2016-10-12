@@ -1,8 +1,8 @@
 "use strict";
-const estacionamento_listar_component_1 = require('./estacionamento-listar-component');
-const estacionamento_cadastrar_component_1 = require('./estacionamento-cadastrar-component');
-const estacionamento_editar_component_1 = require('./estacionamento-editar-component');
-const estacionamento_visualizar_component_1 = require('./estacionamento-visualizar-component');
+var estacionamento_listar_component_1 = require('./estacionamento-listar-component');
+var estacionamento_cadastrar_component_1 = require('./estacionamento-cadastrar-component');
+var estacionamento_editar_component_1 = require('./estacionamento-editar-component');
+var estacionamento_visualizar_component_1 = require('./estacionamento-visualizar-component');
 exports.EstacionamentoRoutes = [
     { path: 'estacionamento-listar', component: estacionamento_listar_component_1.EstacionamentoListarComponent },
     { path: 'estacionamento-cadastrar', component: estacionamento_cadastrar_component_1.EstacionamentoCadastrarComponent },

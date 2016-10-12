@@ -8,30 +8,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const projeto_1 = require('../.././models/projeto');
-const projeto_service_1 = require('../.././services/projeto-service');
-const router_1 = require('@angular/router');
-let ProjetoCadastrarComponent = class ProjetoCadastrarComponent {
-    constructor(router, projetoService) {
+var core_1 = require('@angular/core');
+var projeto_1 = require('../.././models/projeto');
+var projeto_service_1 = require('../.././services/projeto-service');
+var router_1 = require('@angular/router');
+var ProjetoCadastrarComponent = (function () {
+    function ProjetoCadastrarComponent(router, projetoService) {
         this.router = router;
         this.projetoService = projetoService;
     }
-    ngOnInit() {
+    ProjetoCadastrarComponent.prototype.ngOnInit = function () {
         this.projeto = new projeto_1.Projeto();
-    }
-    cadastrar() {
-        this.projetoService.cadastrar(this.projeto).subscribe(data => this.mensagem = data, error => this.error = "Erro ao cadastrar projeto", () => this.router.navigate(['/projeto-listar']));
-    }
-};
-ProjetoCadastrarComponent = __decorate([
-    core_1.Component({
-        selector: 'projeto-cadastrar',
-        templateUrl: 'app/views/projetos/cadastrar.html',
-        providers: [projeto_service_1.ProjetoService],
-        directives: [router_1.ROUTER_DIRECTIVES]
-    }), 
-    __metadata('design:paramtypes', [router_1.Router, projeto_service_1.ProjetoService])
-], ProjetoCadastrarComponent);
+    };
+    ProjetoCadastrarComponent.prototype.cadastrar = function () {
+        var _this = this;
+        this.projetoService.cadastrar(this.projeto).subscribe(function (data) { return _this.mensagem = data; }, function (error) { return _this.error = "Erro ao cadastrar projeto"; }, function () { return _this.router.navigate(['/projeto-listar']); });
+    };
+    ProjetoCadastrarComponent = __decorate([
+        core_1.Component({
+            selector: 'projeto-cadastrar',
+            templateUrl: 'app/views/projetos/cadastrar.html',
+            providers: [projeto_service_1.ProjetoService],
+            directives: [router_1.ROUTER_DIRECTIVES]
+        }), 
+        __metadata('design:paramtypes', [router_1.Router, projeto_service_1.ProjetoService])
+    ], ProjetoCadastrarComponent);
+    return ProjetoCadastrarComponent;
+}());
 exports.ProjetoCadastrarComponent = ProjetoCadastrarComponent;
 //# sourceMappingURL=projeto-cadastrar-component.js.map

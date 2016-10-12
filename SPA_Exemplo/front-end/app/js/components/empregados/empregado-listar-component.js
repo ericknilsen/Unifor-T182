@@ -8,31 +8,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const empregado_service_1 = require('../.././services/empregado-service');
-const router_1 = require('@angular/router');
-let EmpregadoListarComponent = class EmpregadoListarComponent {
-    constructor(empregadoService) {
+var core_1 = require('@angular/core');
+var empregado_service_1 = require('../.././services/empregado-service');
+var router_1 = require('@angular/router');
+var EmpregadoListarComponent = (function () {
+    function EmpregadoListarComponent(empregadoService) {
         this.empregadoService = empregadoService;
     }
-    ngOnInit() {
+    EmpregadoListarComponent.prototype.ngOnInit = function () {
         this.listar();
-    }
-    listar() {
-        this.empregadoService.listar().subscribe(data => this.empregados = data, error => this.error = "Erro ao listar empregados");
-    }
-    excluir(id) {
-        this.empregadoService.excluir(id).subscribe(data => this.mensagem = data, error => this.error = "Erro ao excluir empregado", () => this.listar());
-    }
-};
-EmpregadoListarComponent = __decorate([
-    core_1.Component({
-        selector: 'empregado-listar',
-        templateUrl: 'app/views/empregados/listar.html',
-        providers: [empregado_service_1.EmpregadoService],
-        directives: [router_1.ROUTER_DIRECTIVES]
-    }), 
-    __metadata('design:paramtypes', [empregado_service_1.EmpregadoService])
-], EmpregadoListarComponent);
+    };
+    EmpregadoListarComponent.prototype.listar = function () {
+        var _this = this;
+        this.empregadoService.listar().subscribe(function (data) { return _this.empregados = data; }, function (error) { return _this.error = "Erro ao listar empregados"; });
+    };
+    EmpregadoListarComponent.prototype.excluir = function (id) {
+        var _this = this;
+        this.empregadoService.excluir(id).subscribe(function (data) { return _this.mensagem = data; }, function (error) { return _this.error = "Erro ao excluir empregado"; }, function () { return _this.listar(); });
+    };
+    EmpregadoListarComponent = __decorate([
+        core_1.Component({
+            selector: 'empregado-listar',
+            templateUrl: 'app/views/empregados/listar.html',
+            providers: [empregado_service_1.EmpregadoService],
+            directives: [router_1.ROUTER_DIRECTIVES]
+        }), 
+        __metadata('design:paramtypes', [empregado_service_1.EmpregadoService])
+    ], EmpregadoListarComponent);
+    return EmpregadoListarComponent;
+}());
 exports.EmpregadoListarComponent = EmpregadoListarComponent;
 //# sourceMappingURL=empregado-listar-component.js.map

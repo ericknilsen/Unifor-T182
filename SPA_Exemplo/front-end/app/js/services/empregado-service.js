@@ -8,41 +8,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const http_1 = require('@angular/http');
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
 require('rxjs/Rx');
-let EmpregadoService = class EmpregadoService {
-    constructor(http) {
+var EmpregadoService = (function () {
+    function EmpregadoService(http) {
         this.http = http;
         this.urlServico = "http://localhost:8080/ExemploRest/rest/empregados";
     }
-    listar() {
-        return this.http.get(this.urlServico).map(res => res.json());
-    }
-    cadastrar(empregado) {
-        let headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        let options = new http_1.RequestOptions({ headers: headers });
-        let body = JSON.stringify(empregado);
-        return this.http.post(this.urlServico, body, options).map(res => res.text());
-    }
-    atualizar(empregado) {
-        let headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        let options = new http_1.RequestOptions({ headers: headers });
-        let body = JSON.stringify(empregado);
-        return this.http.put(this.urlServico, body, options).map(res => res.text());
-    }
-    excluir(id) {
-        let url = this.urlServico + '/' + id;
-        return this.http.delete(url).map(res => res.text());
-    }
-    buscarPorId(id) {
-        return this.http.get(this.urlServico + '/' + id).map(res => res.json());
+    EmpregadoService.prototype.listar = function () {
+        return this.http.get(this.urlServico).map(function (res) { return res.json(); });
+    };
+    EmpregadoService.prototype.cadastrar = function (empregado) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        var body = JSON.stringify(empregado);
+        return this.http.post(this.urlServico, body, options).map(function (res) { return res.text(); });
+    };
+    EmpregadoService.prototype.atualizar = function (empregado) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        var body = JSON.stringify(empregado);
+        return this.http.put(this.urlServico, body, options).map(function (res) { return res.text(); });
+    };
+    EmpregadoService.prototype.excluir = function (id) {
+        var url = this.urlServico + '/' + id;
+        return this.http.delete(url).map(function (res) { return res.text(); });
+    };
+    EmpregadoService.prototype.buscarPorId = function (id) {
+        return this.http.get(this.urlServico + '/' + id).map(function (res) { return res.json(); });
         ;
-    }
-};
-EmpregadoService = __decorate([
-    core_1.Injectable(), 
-    __metadata('design:paramtypes', [http_1.Http])
-], EmpregadoService);
+    };
+    EmpregadoService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], EmpregadoService);
+    return EmpregadoService;
+}());
 exports.EmpregadoService = EmpregadoService;
 //# sourceMappingURL=empregado-service.js.map

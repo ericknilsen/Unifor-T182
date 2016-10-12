@@ -8,31 +8,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const departamento_service_1 = require('../.././services/departamento-service');
-const router_1 = require('@angular/router');
-let DepartamentoListarComponent = class DepartamentoListarComponent {
-    constructor(departamentoService) {
+var core_1 = require('@angular/core');
+var departamento_service_1 = require('../.././services/departamento-service');
+var router_1 = require('@angular/router');
+var DepartamentoListarComponent = (function () {
+    function DepartamentoListarComponent(departamentoService) {
         this.departamentoService = departamentoService;
     }
-    ngOnInit() {
+    DepartamentoListarComponent.prototype.ngOnInit = function () {
         this.listar();
-    }
-    listar() {
-        this.departamentoService.listar().subscribe(data => this.departamentos = data, error => this.error = "Erro ao listar departamentos");
-    }
-    excluir(id) {
-        this.departamentoService.excluir(id).subscribe(data => this.mensagem = data, error => this.error = "Erro ao excluir departamento", () => this.listar());
-    }
-};
-DepartamentoListarComponent = __decorate([
-    core_1.Component({
-        selector: 'departamento-listar',
-        templateUrl: 'app/views/departamentos/listar.html',
-        providers: [departamento_service_1.DepartamentoService],
-        directives: [router_1.ROUTER_DIRECTIVES]
-    }), 
-    __metadata('design:paramtypes', [departamento_service_1.DepartamentoService])
-], DepartamentoListarComponent);
+    };
+    DepartamentoListarComponent.prototype.listar = function () {
+        var _this = this;
+        this.departamentoService.listar().subscribe(function (data) { return _this.departamentos = data; }, function (error) { return _this.error = "Erro ao listar departamentos"; });
+    };
+    DepartamentoListarComponent.prototype.excluir = function (id) {
+        var _this = this;
+        this.departamentoService.excluir(id).subscribe(function (data) { return _this.mensagem = data; }, function (error) { return _this.error = "Erro ao excluir departamento"; }, function () { return _this.listar(); });
+    };
+    DepartamentoListarComponent = __decorate([
+        core_1.Component({
+            selector: 'departamento-listar',
+            templateUrl: 'app/views/departamentos/listar.html',
+            providers: [departamento_service_1.DepartamentoService],
+            directives: [router_1.ROUTER_DIRECTIVES]
+        }), 
+        __metadata('design:paramtypes', [departamento_service_1.DepartamentoService])
+    ], DepartamentoListarComponent);
+    return DepartamentoListarComponent;
+}());
 exports.DepartamentoListarComponent = DepartamentoListarComponent;
 //# sourceMappingURL=departamento-listar-component.js.map

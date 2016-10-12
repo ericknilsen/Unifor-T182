@@ -8,31 +8,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const estacionamento_service_1 = require('../.././services/estacionamento-service');
-const router_1 = require('@angular/router');
-let EstacionamentoListarComponent = class EstacionamentoListarComponent {
-    constructor(estacionamentoService) {
+var core_1 = require('@angular/core');
+var estacionamento_service_1 = require('../.././services/estacionamento-service');
+var router_1 = require('@angular/router');
+var EstacionamentoListarComponent = (function () {
+    function EstacionamentoListarComponent(estacionamentoService) {
         this.estacionamentoService = estacionamentoService;
     }
-    ngOnInit() {
+    EstacionamentoListarComponent.prototype.ngOnInit = function () {
         this.listar();
-    }
-    listar() {
-        this.estacionamentoService.listar().subscribe(data => this.estacionamentos = data, error => this.error = "Erro ao listar estacionamentos");
-    }
-    excluir(id) {
-        this.estacionamentoService.excluir(id).subscribe(data => this.mensagem = data, error => this.error = "Erro ao excluir estacionamento", () => this.listar());
-    }
-};
-EstacionamentoListarComponent = __decorate([
-    core_1.Component({
-        selector: 'estacionamento-listar',
-        templateUrl: 'app/views/estacionamentos/listar.html',
-        providers: [estacionamento_service_1.EstacionamentoService],
-        directives: [router_1.ROUTER_DIRECTIVES]
-    }), 
-    __metadata('design:paramtypes', [estacionamento_service_1.EstacionamentoService])
-], EstacionamentoListarComponent);
+    };
+    EstacionamentoListarComponent.prototype.listar = function () {
+        var _this = this;
+        this.estacionamentoService.listar().subscribe(function (data) { return _this.estacionamentos = data; }, function (error) { return _this.error = "Erro ao listar estacionamentos"; });
+    };
+    EstacionamentoListarComponent.prototype.excluir = function (id) {
+        var _this = this;
+        this.estacionamentoService.excluir(id).subscribe(function (data) { return _this.mensagem = data; }, function (error) { return _this.error = "Erro ao excluir estacionamento"; }, function () { return _this.listar(); });
+    };
+    EstacionamentoListarComponent = __decorate([
+        core_1.Component({
+            selector: 'estacionamento-listar',
+            templateUrl: 'app/views/estacionamentos/listar.html',
+            providers: [estacionamento_service_1.EstacionamentoService],
+            directives: [router_1.ROUTER_DIRECTIVES]
+        }), 
+        __metadata('design:paramtypes', [estacionamento_service_1.EstacionamentoService])
+    ], EstacionamentoListarComponent);
+    return EstacionamentoListarComponent;
+}());
 exports.EstacionamentoListarComponent = EstacionamentoListarComponent;
 //# sourceMappingURL=estacionamento-listar-component.js.map
