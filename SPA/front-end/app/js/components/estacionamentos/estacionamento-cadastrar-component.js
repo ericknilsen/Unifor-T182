@@ -8,30 +8,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const estacionamento_1 = require('../.././models/estacionamento');
-const estacionamento_service_1 = require('../.././services/estacionamento-service');
-const router_1 = require('@angular/router');
-let EstacionamentoCadastrarComponent = class EstacionamentoCadastrarComponent {
-    constructor(router, estacionamentoService) {
+var core_1 = require('@angular/core');
+var estacionamento_1 = require('../.././models/estacionamento');
+var estacionamento_service_1 = require('../.././services/estacionamento-service');
+var router_1 = require('@angular/router');
+var EstacionamentoCadastrarComponent = (function () {
+    function EstacionamentoCadastrarComponent(router, estacionamentoService) {
         this.router = router;
         this.estacionamentoService = estacionamentoService;
     }
-    ngOnInit() {
+    EstacionamentoCadastrarComponent.prototype.ngOnInit = function () {
         this.estacionamento = new estacionamento_1.Estacionamento();
-    }
-    cadastrar() {
-        this.estacionamentoService.cadastrar(this.estacionamento).subscribe(data => this.mensagem = data, error => this.error = "Erro ao cadastrar estacionamento", () => this.router.navigate(['/estacionamento-listar']));
-    }
-};
-EstacionamentoCadastrarComponent = __decorate([
-    core_1.Component({
-        selector: 'estacionamento-cadastrar',
-        templateUrl: 'app/views/estacionamentos/cadastrar.html',
-        providers: [estacionamento_service_1.EstacionamentoService],
-        directives: [router_1.ROUTER_DIRECTIVES]
-    }), 
-    __metadata('design:paramtypes', [router_1.Router, estacionamento_service_1.EstacionamentoService])
-], EstacionamentoCadastrarComponent);
+    };
+    EstacionamentoCadastrarComponent.prototype.cadastrar = function () {
+        var _this = this;
+        this.estacionamentoService.cadastrar(this.estacionamento).subscribe(function (data) { return _this.mensagem = data; }, function (error) { return _this.error = "Erro ao cadastrar estacionamento"; }, function () { return _this.router.navigate(['/estacionamento-listar']); });
+    };
+    EstacionamentoCadastrarComponent = __decorate([
+        core_1.Component({
+            selector: 'estacionamento-cadastrar',
+            templateUrl: 'app/views/estacionamentos/cadastrar.html',
+            providers: [estacionamento_service_1.EstacionamentoService],
+            directives: [router_1.ROUTER_DIRECTIVES]
+        }), 
+        __metadata('design:paramtypes', [router_1.Router, estacionamento_service_1.EstacionamentoService])
+    ], EstacionamentoCadastrarComponent);
+    return EstacionamentoCadastrarComponent;
+}());
 exports.EstacionamentoCadastrarComponent = EstacionamentoCadastrarComponent;
 //# sourceMappingURL=estacionamento-cadastrar-component.js.map

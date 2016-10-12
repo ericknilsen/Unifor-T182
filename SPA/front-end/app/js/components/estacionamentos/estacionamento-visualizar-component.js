@@ -8,32 +8,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const estacionamento_1 = require('../.././models/estacionamento');
-const estacionamento_service_1 = require('../.././services/estacionamento-service');
-const router_1 = require('@angular/router');
-let EstacionamentoVisualizarComponent = class EstacionamentoVisualizarComponent {
-    constructor(route, estacionamentoService) {
+var core_1 = require('@angular/core');
+var estacionamento_1 = require('../.././models/estacionamento');
+var estacionamento_service_1 = require('../.././services/estacionamento-service');
+var router_1 = require('@angular/router');
+var EstacionamentoVisualizarComponent = (function () {
+    function EstacionamentoVisualizarComponent(route, estacionamentoService) {
         this.route = route;
         this.estacionamentoService = estacionamentoService;
     }
-    buscar(id) {
-        this.estacionamentoService.buscarPorId(id).subscribe(data => this.estacionamento = data, error => this.error = "Erro ao buscar estacionamento");
-    }
-    ngOnInit() {
+    EstacionamentoVisualizarComponent.prototype.buscar = function (id) {
+        var _this = this;
+        this.estacionamentoService.buscarPorId(id).subscribe(function (data) { return _this.estacionamento = data; }, function (error) { return _this.error = "Erro ao buscar estacionamento"; });
+    };
+    EstacionamentoVisualizarComponent.prototype.ngOnInit = function () {
         this.estacionamento = new estacionamento_1.Estacionamento();
         var id = +this.route.snapshot.params['id'];
         this.buscar(id);
-    }
-};
-EstacionamentoVisualizarComponent = __decorate([
-    core_1.Component({
-        selector: 'estacionamento-visualizar',
-        templateUrl: 'app/views/estacionamentos/visualizar.html',
-        providers: [estacionamento_service_1.EstacionamentoService],
-        directives: [router_1.ROUTER_DIRECTIVES]
-    }), 
-    __metadata('design:paramtypes', [router_1.ActivatedRoute, estacionamento_service_1.EstacionamentoService])
-], EstacionamentoVisualizarComponent);
+    };
+    EstacionamentoVisualizarComponent = __decorate([
+        core_1.Component({
+            selector: 'estacionamento-visualizar',
+            templateUrl: 'app/views/estacionamentos/visualizar.html',
+            providers: [estacionamento_service_1.EstacionamentoService],
+            directives: [router_1.ROUTER_DIRECTIVES]
+        }), 
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, estacionamento_service_1.EstacionamentoService])
+    ], EstacionamentoVisualizarComponent);
+    return EstacionamentoVisualizarComponent;
+}());
 exports.EstacionamentoVisualizarComponent = EstacionamentoVisualizarComponent;
 //# sourceMappingURL=estacionamento-visualizar-component.js.map

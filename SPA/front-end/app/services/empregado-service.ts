@@ -13,22 +13,22 @@ export class EmpregadoService {
     }
 
 	listar() {
-        
+		return null;        
     }
 
 	cadastrar(empregado: Empregado) {
-
+		return null;
     }
 
 	atualizar(empregado: Empregado) {
-
+		return null;
     }
 
 	excluir(id: number) {
-
+		return null;
 	}
 
 	buscarPorId(id: number) {
-
+		return null;
 	}
 }
