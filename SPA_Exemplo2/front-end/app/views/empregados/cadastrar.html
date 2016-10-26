@@ -1,0 +1,64 @@
+<h3>Cadastrar Empregado</h3>
+
+
+<div class="col-md-4">
+    <div [hidden]="error == null" class="alert alert-danger" >{{error}}</div>
+
+    <form role="form">
+        <div class="form-group">
+            <label class="control-label" for="nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="nome" [(ngModel)]="empregado.nome">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="email">Email</label>
+            <input type="text" class="form-control" name="email" id="email" [(ngModel)]="empregado.email">
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="departamento">Departamento</label>
+            <select name="departamento" id="departamento" class="form-control" [(ngModel)]="empregado.departamento">
+                <option value="">Selecione</option>
+                 <option *ngFor="let departamento of departamentos" [ngValue]="departamento">
+                  {{departamento.nome}}
+  	            </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="estacionamento">Estacionamento</label>
+            <select name="estacionamento" id="estacionamento" class="form-control" [(ngModel)]="empregado.estacionamento">
+                <option value="">Selecione</option>
+                 <option *ngFor="let estacionamento of estacionamentos" [ngValue]="estacionamento">
+                  {{estacionamento.codigo}}
+  	            </option>
+            </select>
+        </div>
+
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Projetos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let projeto of projetos">
+                        <td>
+                            <input type="checkbox" value="{{projeto.id}}" [ngModel]="projeto.selected" (change)="checkbox(projeto)">                            {{projeto.nome}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="form-group text-center">
+            <button class="btn btn-success" (click)="cadastrar()">
+                Cadastrar
+            </button>
+            <a class="btn btn-default" [routerLink]="['/empregado-listar']">
+                Voltar
+            </a>
+        </div>
+    </form>
+</div>
