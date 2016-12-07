@@ -1,9 +1,6 @@
 package br.unifor.restful.resources;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -17,11 +14,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import br.unifor.bean.EmpregadoBeanRemote;
-import br.unifor.restful.model.DepartamentoVO;
-import br.unifor.restful.model.EmpregadoVO;
-import br.unifor.restful.model.EstacionamentoVO;
-import br.unifor.restful.model.ProjetoVO;
-import br.unifor.restful.util.MontaObjetos;
+import br.unifor.entity.Empregado;
 
 @Stateless
 @Path("/empregados")
@@ -32,28 +25,28 @@ public class EmpregadoResource {
 	
 	@GET
 	@Produces("application/json")
-	public Collection<EmpregadoVO> lista() {
-		return MontaObjetos.montaEmpregadosVO(empregadoBean.lista());
+	public Collection<Empregado> lista() {
+		return empregadoBean.lista();
 	}
 
 	@GET
 	@Path("{id}")
 	@Produces("application/json")
-	public EmpregadoVO busca(@PathParam("id") Long id) {
-		return MontaObjetos.montaEmpregadoVO(empregadoBean.busca(id));
+	public Empregado busca(@PathParam("id") Long id) {
+		return empregadoBean.busca(id);
 	}
 
 	@POST
 	@Consumes("application/json")
 	@Produces("text/plain")
-	public String insere(EmpregadoVO empregadoVO) {
-		return empregadoBean.insere(MontaObjetos.montaEmpregado(empregadoVO));
+	public String insere(Empregado empregadoVO) {
+		return empregadoBean.insere(empregadoVO);
 	}
 
 	@PUT
 	@Consumes("application/json")
 	@Produces("text/plain")
-	public String altera(EmpregadoVO empregadoVO) {
+	public String altera(Empregado empregadoVO) {
 
 		return null;
 	}
