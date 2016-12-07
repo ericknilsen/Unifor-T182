@@ -1,20 +1,18 @@
 package br.unifor.restful.model;
 
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
-public class EmpregadoVO {
+public class Empregado {
 
         private Long id;
         private String nome;       
         private String email;
         
-        private DepartamentoVO departamento;
+        private Departamento departamento;
         
-        private Collection<ProjetoVO> projetos;
+        private Collection<Projeto> projetos;
         
-        private EstacionamentoVO estacionamento;
+        private Estacionamento estacionamento;
         
 		public Long getId() {
 			return id;
@@ -34,22 +32,22 @@ public class EmpregadoVO {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		public Collection<ProjetoVO> getProjetos() {
+		public Collection<Projeto> getProjetos() {
 			return projetos;
 		}
-		public void setProjetos(Collection<ProjetoVO> projetos) {
+		public void setProjetos(Collection<Projeto> projetos) {
 			this.projetos = projetos;
 		}
-		public DepartamentoVO getDepartamento() {
+		public Departamento getDepartamento() {
 			return departamento;
 		}
-		public void setDepartamento(DepartamentoVO departamento) {
+		public void setDepartamento(Departamento departamento) {
 			this.departamento = departamento;
 		}
-		public EstacionamentoVO getEstacionamento() {
+		public Estacionamento getEstacionamento() {
 			return estacionamento;
 		}
-		public void setEstacionamento(EstacionamentoVO estacionamento) {
+		public void setEstacionamento(Estacionamento estacionamento) {
 			this.estacionamento = estacionamento;
 		}
 	
