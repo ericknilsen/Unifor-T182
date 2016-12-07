@@ -1,9 +1,7 @@
 package br.unifor.restful.model;
 
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
-public class ProjetoVO {
+public class Projeto {
 
         private Long id;
         private String nome;       
